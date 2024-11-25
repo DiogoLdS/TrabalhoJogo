@@ -1,0 +1,353 @@
+.bokor-regular {
+    font-family: "Bokor", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }  
+#fundo {
+    position: absolute;
+    top: 5vw;
+    left:5vw;
+    width: 90vw;
+    height: 90vw;
+    background-image: "ext8waid79e81.png";
+    text-align: center;
+   }
+
+.lugar {
+    position: absolute;
+    width: 5vw;
+    height: 7vw;
+    display: grid;
+    place-items: center;
+    
+}
+
+.espaco{
+    display: grid;
+    position: absolute;
+
+    width: 63vw;
+    height: 7vw;
+}
+#zombieinicial{
+    display: none; 
+}
+#espaco1 {
+    top: 15vw;
+    left: 19vw;
+}
+#espaco2 {
+    top: 25vw;
+    left: 19vw;
+}
+#espaco3 {
+    top: 35vw;
+    left: 19vw;
+}
+#espaco4 {
+    top: 45vw;
+    left: 19vw;
+}
+#espaco5 {
+    top: 55vw;
+    left: 19vw;
+}
+.zombies {
+ width: 7vw;
+ height: 11vw;
+}
+
+.bala{
+    position: absolute;
+    width: 2.5vw;
+    height: 2.5vw;
+    background-color: green;
+    border-radius: 50px;
+    border: 0.3vw solid darkgreen;
+}
+
+#container {
+    padding: 20px;
+    background-color: lightgray;
+  }
+  
+  .item {
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+  }
+  
+  /* Estilo para a div de exibição */
+  #display {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e0ffe0;
+    border: 2px dashed green;
+    
+  }
+  
+  /* Esconde a div inicialmente */
+  .hidden {
+    display: none;
+  }
+
+
+
+#fundin {
+    width: 100%;
+    height: 80%;
+}
+#div1 {
+   position: absolute;
+   top: 35vw;
+   left: 35vw;
+   width: 5vw; 
+   height: 5vw; 
+   background-color: green; 
+   display: none;
+}
+.bullets {
+   position: absolute;
+   top: 34vw;
+   width: 4vw;
+   height: 2vw;
+   background-color: aqua;
+   
+ }
+.painel1 {
+   position: absolute;
+    top: 97vw; 
+    left:10vw; 
+    text-align: center;
+}
+.painel2 {
+   position: absolute;
+    top: 87vw; 
+    left:40vw; 
+    text-align: center;
+
+}
+.erv {
+    width:8vw;
+    height: 8vw;
+    border: 0px;
+}  
+  
+/* Lugares */
+#lugar1{
+    top: 15vw;
+    left: 19vw;
+}
+#lugar2{
+    top: 15vw;
+    left: 26vw;
+}
+#lugar3{
+    top: 15vw;
+    left: 33vw;
+}
+#lugar4{
+    top: 15vw;
+    left: 40vw;
+}
+#lugar5{
+    top: 15vw;
+    left: 48vw;
+}
+#lugar6{
+    top: 15vw;
+    left: 55vw;
+}
+#lugar7{
+    top: 15vw;
+    left: 62vw;
+}
+#lugar8{
+    top: 15vw;
+    left: 69vw;
+}
+#lugar9{
+    top: 15vw;
+    left: 76vw;
+}
+#lugar10{
+    top: 25vw;
+    left: 19vw;
+}
+#lugar11{
+    top: 25vw;
+    left: 26vw;
+}
+#lugar12{
+    top: 25vw;
+    left: 33vw;
+}
+#lugar13{
+    top: 25vw;
+    left: 40vw;
+}
+#lugar14{
+    top: 25vw;
+    left: 48vw;
+}
+#lugar15{
+    top: 25vw;
+    left: 55vw;
+}
+#lugar16{
+    top: 25vw;
+    left: 62vw;
+}
+#lugar17{
+    top: 25vw;
+    left: 69vw;
+}
+#lugar18{
+    top: 25vw;
+    left: 76vw;
+}
+#lugar19{
+    top: 35vw;
+    left: 19vw;
+}
+#lugar20{
+    top: 35vw;
+    left: 26vw;
+}
+#lugar21{
+    top: 35vw;
+    left: 33vw;
+}
+#lugar22{
+    top: 35vw;
+    left: 40vw;
+}
+#lugar23{
+    top: 35vw;
+    left: 48vw;
+}
+#lugar24{
+    top: 35vw;
+    left: 55vw;
+}
+#lugar25{
+    top: 35vw;
+    left: 62vw;
+}
+#lugar26{
+    top: 35vw;
+    left: 69vw;
+}
+#lugar27{
+    top: 35vw;
+    left: 76vw;
+}
+#lugar28{
+    top: 45vw;
+    left: 19vw;
+}
+#lugar29{
+    top: 45vw;
+    left: 26vw;
+}
+#lugar30{
+    top: 45vw;
+    left: 33vw;
+}
+#lugar31{
+    top: 45vw;
+    left: 40vw;
+}
+#lugar32{
+    top: 45vw;
+    left: 48vw;
+}
+#lugar33{
+    top: 45vw;
+    left: 55vw;
+}
+#lugar34{
+    top: 45vw;
+    left: 62vw;
+}
+#lugar35{
+    top: 45vw;
+    left: 69vw;
+}
+#lugar36{
+    top: 45vw;
+    left: 76vw;
+}
+#lugar37{
+    top: 55vw;
+    left: 19vw;
+}
+#lugar38{
+    top: 55vw;
+    left: 26vw;
+}
+#lugar39{
+    top: 55vw;
+    left: 33vw;
+}
+#lugar40{
+    top: 55vw;
+    left: 40vw;
+}
+#lugar41{
+    top: 55vw;
+    left: 48vw;
+}
+#lugar42{
+    top: 55vw;
+    left: 55vw;
+}
+#lugar43{
+    top: 55vw;
+    left: 62vw;
+}
+#lugar44{
+    top: 55vw;
+    left: 69vw;
+}
+#lugar45{
+    top: 55vw;
+    left: 76vw;
+}
+#iniciarbtn{
+    width: 50vw;
+}
+.contagem{
+    position: absolute;
+
+    
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: green;
+    display: grid;
+    
+}
+#contagem1{
+    top: 1vw;
+    left: 40vw;
+    width: 20vw;
+    height: 7vw;
+    align-items: center;
+}
+#contagem2 {
+    top: 1vw;
+    left: 65vw;
+    width: 20vw;
+    height: 7vw;
+    align-items: center;
+}
+#pontosp, #vidasp{
+    font-family: "Bokor";
+    font-size: 2.3vw;
+
+}
+#balainicial {
+    visibility: hidden;
+}
