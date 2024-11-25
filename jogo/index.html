@@ -1,0 +1,685 @@
+<!DOCTYPE >
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bokor&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+	<body>
+		<div class="fundo" id="fundo">
+            <img src="ext8waid79e81.png" id="fundin">
+			<div class="contagem" id="contagem1"><div id="pontosp">Pontos:</div></div>
+			<div class="contagem" id="contagem2"><div id="vidasp">Vidas:</div></div>
+			<div id="div1">
+				
+			</div>
+			<div class="espaco" id="espaco1">
+			</div>
+			<div class="espaco" id="espaco2"></div>
+			<div class="espaco" id="espaco3"></div>
+			<div class="espaco" id="espaco4"></div>
+			<div class="espaco" id="espaco5"></div>
+            <div class="lugar" id="lugar1"></div>
+            <div class="lugar" id="lugar2"></div>
+            <div class="lugar" id="lugar3"></div>
+            <div class="lugar" id="lugar4"></div>
+            <div class="lugar" id="lugar5"></div>
+            <div class="lugar" id="lugar6"></div>
+            <div class="lugar" id="lugar7"></div>
+            <div class="lugar" id="lugar8"></div>
+            <div class="lugar" id="lugar9"></div>
+            <div class="lugar" id="lugar10"></div>
+            <div class="lugar" id="lugar11"></div>
+            <div class="lugar" id="lugar12"></div>
+            <div class="lugar" id="lugar13"></div>
+            <div class="lugar" id="lugar14"></div>
+            <div class="lugar" id="lugar15"></div>
+            <div class="lugar" id="lugar16"></div>
+            <div class="lugar" id="lugar17"></div>
+            <div class="lugar" id="lugar18"></div>
+            <div class="lugar" id="lugar19"></div>
+            <div class="lugar" id="lugar20"></div>
+            <div class="lugar" id="lugar21"></div>
+            <div class="lugar" id="lugar22"></div>
+            <div class="lugar" id="lugar23"></div>
+            <div class="lugar" id="lugar24"></div>
+            <div class="lugar" id="lugar25"></div>
+            <div class="lugar" id="lugar26"></div>
+            <div class="lugar" id="lugar27"></div>
+            <div class="lugar" id="lugar28"></div>
+            <div class="lugar" id="lugar29"></div>
+            <div class="lugar" id="lugar30"></div>
+            <div class="lugar" id="lugar31"></div>
+            <div class="lugar" id="lugar32"></div>
+            <div class="lugar" id="lugar33"></div>
+            <div class="lugar" id="lugar34"></div>
+            <div class="lugar" id="lugar35"></div>
+            <div class="lugar" id="lugar36"></div>
+            <div class="lugar" id="lugar37"></div>
+            <div class="lugar" id="lugar38"></div>
+            <div class="lugar" id="lugar39"></div>
+            <div class="lugar" id="lugar40"></div>
+            <div class="lugar" id="lugar41"></div>
+            <div class="lugar" id="lugar42"></div>
+            <div class="lugar" id="lugar43"></div>
+            <div class="lugar" id="lugar44"></div>
+            <div class="lugar" id="lugar45"></div>
+            
+		</div>	
+		<div class="painel2">
+			<button onmouseup="iniciar()" id="iniciarbtn">Iniciar</button>
+			<button onmouseup="reiniciar()">Reiniciar</button>
+			<br>
+		<img src="180564.png" alt="atirador" class="plantas erv" id="atirador1">
+		<img src="180564.png" alt="atirador" class="plantas erv" id="atirador2">
+		<img src="180564.png" alt="atirador" class="plantas erv" id="atirador3">
+		<img src="180564.png" alt="atirador" class="plantas erv" id="atirador4">
+		<img src="180564.png" alt="atirador" class="plantas erv" id="atirador5">
+		<img src="180564.png" alt="atirador" class="plantas erv" id="atirador6">
+		<img src="180564.png" alt="atirador" class="plantas erv" id="atirador7">
+		<img src="180564.png" alt="atirador" class="plantas erv" id="atirador8">
+		<div class="bala" id="balainicial"></div>
+		<img src="zombie.gif" alt="zombies" class="zombies" id="zombieinicial">
+		</div>
+		
+        <div class="painel1">
+			
+		</div>
+		<script>
+//Ao carregar a página estas linhas são executadas.
+
+//Variáveis globais 
+//os id são referencias globais aos seus elementos, neste caso: div1 e fundo
+		let parado = true; //O div1 está parado?
+	let timerDiv1; //controlado pelos botões
+	let podeAtirar = true;
+	let bala;
+	let timerBala;
+	let timer = 0;
+	let pontuacao = 0;
+	let fundo = document.querySelector("#fundo");
+	//Adiciona o evento click no botão iniciar
+
+	let htmPlanta1 = document.querySelector("#atirador1");
+	let htmPlanta2 = document.querySelector("#atirador2");
+	let htmPlanta3 = document.querySelector("#atirador3");
+	let htmPlanta4 = document.querySelector("#atirador4");
+	let htmPlanta5 = document.querySelector("#atirador5");
+	let htmPlanta6 = document.querySelector("#atirador6");
+	let htmPlanta7 = document.querySelector("#atirador7");
+	let htmPlanta8 = document.querySelector("#atirador8");
+	let bbb = [];
+	let zombies = [];
+	let plantasJogo = [];
+	let vidasT = 3;
+	let plantasFora = [
+		{
+		top: "",
+		left: "",
+		pego: 0,
+		vida: 50,
+		elemento: htmPlanta1
+		},
+		{
+		top: "",
+		left: "",
+		pego: 0,
+		vida: 50,
+		elemento: htmPlanta2
+		},
+		{
+		top: "",
+		left: "",
+		pego: 0,
+		vida: 50,
+		elemento: htmPlanta3
+		},
+		{
+		top: "",
+		left: "",
+		pego: 0,
+		vida: 50,
+		elemento: htmPlanta4
+		},
+		{
+		top: "",
+		left: "",
+		pego: 0,
+		vida: 50,
+		elemento: htmPlanta5
+		},
+		{
+		top: "",
+		left: "",
+		pego: 0,
+		vida: 50,
+		elemento: htmPlanta6
+		},
+		{
+		top: "",
+		left: "",
+		pego: 0,
+		vida: 50,
+		elemento: htmPlanta7
+		},
+		{
+		top: "",
+		left: "",
+		pego: 0,
+		vida: 50,
+		elemento: htmPlanta8
+		}
+	];
+	document.querySelector("#atirador1").addEventListener("click", ()=>{movePers(plantasFora[0])});
+	document.querySelector("#atirador2").addEventListener("click", ()=>{movePers(plantasFora[1])});
+	document.querySelector("#atirador3").addEventListener("click", ()=>{movePers(plantasFora[2])});
+	document.querySelector("#atirador4").addEventListener("click", ()=>{movePers(plantasFora[3])});
+	document.querySelector("#atirador5").addEventListener("click", ()=>{movePers(plantasFora[4])});
+	document.querySelector("#atirador6").addEventListener("click", ()=>{movePers(plantasFora[5])});
+	document.querySelector("#atirador7").addEventListener("click", ()=>{movePers(plantasFora[6])});
+	document.querySelector("#atirador8").addEventListener("click", ()=>{movePers(plantasFora[7])});
+
+	const lugares = document.querySelectorAll(".lugar");
+	const plantasa = document.querySelectorAll(".plantas");
+	const zombiesa = document.querySelectorAll(".zombies");
+	const clBala = document.querySelectorAll(".bala");
+	let balasJogo = [];
+	let velocidade = 8;
+
+	//*****  Funções  *******//
+	
+	function iniciar (){
+		
+		document.getElementById("iniciarbtn").style.visibility = "hidden";
+		function simplyTimer (){
+			timer++;
+		}
+		let setTimer = setInterval(()=> {
+			simplyTimer();
+		}, 1000);
+			// Spawn zumbis
+			let spawnZumbis = setInterval(() => {
+				let tf = Math.ceil(Math.random()*10);
+				let tp = Math.ceil(Math.random()*5);
+				let topZombie = 0;
+				let leftZombie = 100;
+				
+				/*switch (tp) {
+					case 1:
+						topZombie = "15vw";
+						leftZombie = "76vw";
+						break;
+					case 2:
+						topZombie = "25vw";
+						leftZombie = "76vw";
+						break;
+					case 3:
+						topZombie = "35vw";
+						leftZombie = "76vw";
+						break;
+					case 4:
+						topZombie = "45vw";
+						leftZombie = "76vw";
+						break;
+					case 5:
+						topZombie = "55vw";
+						leftZombie = "76vw";
+						break;
+				}*/
+				function lugarZOcupado(top, left) {
+					let a = z => z.tp === top && z.left === left;
+					return zombies.some(a);
+				}
+				function colocarZumbi(){
+					let zombieArr = {
+						vivo: 1,
+						tp: tp,
+						left: leftZombie,
+						colPlantTp: 0,
+						colPlantLeft: 0,
+						leftReal: 0,
+						topReal: 0,
+						andar: 1,
+						vida: 100
+					}
+					
+					let novoZombie = document.querySelector(".zombies").cloneNode(true);
+					novoZombie.id = ("zombie"+(zombies.length+1));
+					novoZombie.style.position = "absolute";
+					novoZombie.style.left = `100%`;
+					
+
+					document.getElementById(`espaco${tp}`).appendChild(novoZombie);
+					let zombieRect = novoZombie.getBoundingClientRect();
+					zombieArr.leftReal=zombieRect.left;
+					zombieArr.topReal=zombieRect.top;
+					zombieArr.elemento = novoZombie;
+					zombies.push(zombieArr);
+				}
+				if (tf>velocidade && !lugarZOcupado(tp, leftZombie)){
+						colocarZumbi();
+				}
+			}, 1000);
+			}
+	document.addEventListener("DOMContentLoaded", function() {
+		let vwEmPx = window.innerWidth / 100;
+				lugares.forEach(item => {item.addEventListener("click", function() {
+					plantasFora.forEach(item => {
+						if (item.pego == 1){
+						let lugarRect = this.getBoundingClientRect();
+						this.appendChild(item.elemento);
+						item.elemento.style.border = "none";
+						item.pego = 2;
+						item.top = lugarRect.top;
+						item.left = lugarRect.left;
+						let plantaRect = item.elemento.getBoundingClientRect();
+						plantasJogo.push(item);
+					}
+					})
+				});
+			});
+
+			function verificarColisaoBala(bala, zumbi) {
+				const balaRect = bala.elemento.getBoundingClientRect();
+				const zumbiRect = zumbi.elemento.getBoundingClientRect();
+			// Verifica colisão entre as bordas da bala e do zumbi
+			return (
+				balaRect.left < zumbiRect.right &&
+				balaRect.right > zumbiRect.left &&
+				balaRect.top < zumbiRect.bottom &&
+				balaRect.bottom > zumbiRect.top
+			);
+		}
+			function atualizarBalas() {
+			for (let i = balasJogo.length - 1; i >= 0; i--) {
+				const bala = balasJogo[i];
+				bala.left += 1; // Atualiza a posição da bala para a direita
+				bala.elemento.style.left = `${bala.left}%`;
+
+				// Verifica colisão da bala com cada zumbi na tela
+				for (let j = 0; j < zombies.length; j++) {
+					const zumbi = zombies[j];
+					if (verificarColisaoBala(bala, zumbi)) {
+						// Colisão detectada, remover a bala e o zumbi atingido
+						bala.elemento.remove();
+						balasJogo.splice(i, 1);
+						zumbi.vida -=40;
+						if (zumbi.vida <=0){
+							zumbi.elemento.remove();
+							zombies.splice(j,1);
+							pontuacao+=100;
+						}
+						break; // Para evitar checar colisões adicionais para a bala removida
+					}
+				}
+
+				// Remove a bala se ela sair da tela
+				if (bala.left >= 110) {
+					bala.elemento.remove();
+					balasJogo.splice(i, 1);
+				}
+			}
+		}
+		setInterval(() => {
+			if (localStorage.getItem("vidas") == 0){
+				reiniciar();
+				console.log(111);
+			}
+		},1);
+		function vidaLocal (){
+			localStorage.setItem('vidas', vidasT);
+		}
+		setInterval(vidaLocal, 1);
+		function mudarVida(){
+			let vidap = document.getElementById("vidasp");
+			vidasp.innerHTML = "Vidas: "+localStorage.getItem('vidas');
+		}
+		setInterval(mudarVida,1);
+		function pontLocal (){
+			localStorage.setItem('pontos', pontuacao);
+		}
+		setInterval(pontLocal, 1);
+		function mudarPonto(){
+			let pontop = document.getElementById("pontosp");
+			pontop.innerHTML = "Pontos: "+localStorage.getItem('pontos');
+		}
+		setInterval(mudarPonto,1);
+		function verificarTimer (){
+			if (timer == 60){
+				velocidade = 6;
+				console.log(velocidade);
+			}
+			if (timer == 100){
+				velocidade = 4;
+				console.log(velocidade);
+			}
+			if (timer == 140){
+				velocidade = 2;
+				console.log(velocidade);
+			}
+		}
+			setInterval(verificarTimer, 1);
+			setInterval(atualizarBalas, 20);
+			
+			function verificarColisao(zumbi, planta) {
+				if ((Math.round(zumbi.leftReal) < Math.round(planta.left+50) && Math.round(zumbi.leftReal)> Math.round(planta.left-70)) && Math.round(zumbi.topReal) === Math.round(planta.top)){
+					return true;
+				} else {
+					return false;
+				};
+			}
+
+			
+
+			function fimZumbis (){
+				zombies.forEach(item => {
+					if (item.left <= -15){
+						item.elemento.remove();
+						zombies.splice(zombies.indexOf(item), 1);
+						vidasT--;
+					}
+				})
+			}
+			setInterval(fimZumbis, 1);
+			// Movimentação dos zumbis
+			let moveZumbi = setInterval(() => {
+				for (let i = 0; i < zombies.length; i++) {
+				if (zombies[i].andar === 1) {
+					// Move o zumbi para a esquerda
+					zombies[i].left = zombies[i].left - 0.075;
+					zombies[i].elemento.style.left = `${zombies[i].left}%`;
+
+					// Atualiza a posição real do zumbi
+					let zombieRect = zombies[i].elemento.getBoundingClientRect();
+					zombies[i].leftReal = zombieRect.left;
+					zombies[i].topReal = zombieRect.top;
+
+					// Verifica colisão com todas as plantas em jogo
+					for (let j = 0; j < plantasJogo.length; j++) {
+						if (verificarColisao(zombies[i], plantasJogo[j])==true) {
+							zombies[i].andar = 0;
+						}
+					}
+				}
+			}
+				balasJogo.forEach(item => {
+					item.elemento.style.left = item.left+1+"%";
+					item.left=item.left+1;
+				})
+			},20);
+			setInterval(() => {
+				for (let i = 0; i < zombies.length; i++) {
+					// Verifica colisão com todas as plantas em jogo
+					for (let j = 0; j < plantasJogo.length; j++) {
+						if (verificarColisao(zombies[i], plantasJogo[j])==true) {
+							plantasJogo[j].vida-=2;
+							
+							if (plantasJogo[j].vida<=0){
+								zombies[i].andar = 1;
+							}
+						}
+					}
+				}
+			}, 1000);
+			setInterval(()=> {
+				plantasJogo.forEach(item => {
+				if (item.vida <= 0){
+					item.elemento.parentElement.removeChild(item.elemento);
+					plantasJogo.splice((plantasJogo.indexOf(item)),1);
+					
+				}
+			});
+				
+			},1)
+			
+			let atirarBala = setInterval(()=> {
+				plantasJogo.forEach(item => {
+					let topo = 0;
+					let esq = 0;
+					
+					switch (item.elemento.parentElement.id) {
+						case "lugar1":
+						case "lugar2":
+						case "lugar3":
+						case "lugar4":
+						case "lugar5":
+						case "lugar6":
+						case "lugar7":
+						case "lugar8":
+						case "lugar9":
+							topo = 1;
+							break;
+						case "lugar10":
+						case "lugar11":
+						case "lugar12":
+						case "lugar13":
+						case "lugar14":
+						case "lugar15":
+						case "lugar16":
+						case "lugar17":
+						case "lugar18":
+							topo = 2;
+							break;
+						case "lugar19":
+						case "lugar20":
+						case "lugar21":
+						case "lugar22":
+						case "lugar23":
+						case "lugar24":
+						case "lugar25":
+						case "lugar26":
+						case "lugar27":
+							topo = 3;
+							break;
+						case "lugar28":
+						case "lugar29":
+						case "lugar30":
+						case "lugar31":
+						case "lugar32":
+						case "lugar33":
+						case "lugar34":
+						case "lugar35":
+						case "lugar36":
+							topo = 4;
+							break;
+						case "lugar37":
+						case "lugar38":
+						case "lugar39":
+						case "lugar40":
+						case "lugar41":
+						case "lugar42":
+						case "lugar43":
+						case "lugar44":
+						case "lugar45":
+							topo = 5;
+							break;
+					};
+					if (item.pego === 2){
+						let espacotal = document.querySelector(`#espaco${topo}`);
+						let balanova = document.createElement("div");
+						balanova.classList.add("bala");
+						balanova.id = `bala${balasJogo.length+1}`;
+						let topBalaPX = parseFloat(getComputedStyle(item.elemento.parentElement).top);
+						let leftBalaPX = parseFloat(getComputedStyle(item.elemento.parentElement).left);
+						let topBalaI = topBalaPX / vwEmPx;
+						let leftBalaI = leftBalaPX / vwEmPx;
+						switch (item.elemento.parentElement.id) {
+						case "lugar1":
+						case "lugar10":
+						case "lugar19":
+						case "lugar28":
+						case "lugar37":
+							esq = 11;
+							break;
+						case "lugar2":
+						case "lugar11":
+						case "lugar20":
+						case "lugar29":
+						case "lugar38":
+							esq = 22;
+							break;
+						case "lugar3":
+						case "lugar12":
+						case "lugar21":
+						case "lugar30":
+						case "lugar39":
+							esq = 33;
+							break;
+						case "lugar4":
+						case "lugar13":
+						case "lugar22":
+						case "lugar31":
+						case "lugar40":
+							esq = 44;
+							break;
+						case "lugar5":
+						case "lugar14":
+						case "lugar23":
+						case "lugar32":
+						case "lugar41":
+							esq = 55;
+							break;
+						case "lugar6":
+						case "lugar15":
+						case "lugar24":
+						case "lugar33":
+						case "lugar42":
+							esq = 66;
+							break;
+						case "lugar7":
+						case "lugar16":
+						case "lugar25":
+						case "lugar34":
+						case "lugar43":
+							esq = 77;
+							break;
+						case "lugar8":
+						case "lugar17":
+						case "lugar26":
+						case "lugar35":
+						case "lugar44":
+							esq = 88;
+							break;
+						case "lugar9":
+						case "lugar18":
+						case "lugar27":
+						case "lugar36":
+						case "lugar45":
+							esq = 99;
+							break;
+					};
+						
+						balanova.style.left = `${esq}%`;
+
+						balasJogo.push({
+							leftReal: (balanova.getBoundingClientRect()).left,
+							left: esq,
+							elemento: balanova
+						})
+						espacotal.appendChild(balanova);
+					}
+				});
+			},5000);
+	});
+
+
+	function movePers(personagem){
+		personagem.pego = 1;
+		personagem.elemento.style.border = "3px solid darkgoldenrod";
+		personagem.elemento.style.borderRadius = "7px";
+	}
+
+	function atirar(){
+		if(podeAtirar==true){
+			bala = document.createElement("div");
+			bala.classList.add("bullets");
+			bala.style.left=parseInt(getComputedStyle(div1).left);
+			fundo.appendChild(bala);
+			podeAtirar=false;
+			timerBala = setInterval("moveBala(bala)",10);
+		}
+	}
+
+	function moveBala(bala){
+			
+		let top =  parseInt(getComputedStyle(bala).top);
+		bala.style.top=top-1;
+		if (top <= 0)
+		{
+			bala.parentElement.removeChild(bala); 
+			clearInterval(timerBala);
+			podeAtirar=true;
+		}
+	};
+
+	// Mover div 1  - através dos botões
+	function move(Direcao) {
+		if (!parado) {
+			clearInterval(timerDiv1);
+		}
+		if (Direcao == "direita") {
+			timerDiv1 = setInterval("direita()",15);
+			parado = false;
+		}
+
+		if (Direcao == "esquerda") {
+			timerDiv1 = setInterval("esquerda()",15);
+			parado = false;;
+		}
+	}
+
+
+	function direita() {
+		let div1Left= parseInt(getComputedStyle(div1).left);
+		let fundoWidth= parseInt(getComputedStyle(fundo).width);
+		let div1Width= parseInt(getComputedStyle(div1).width);
+
+		div1.style.left = div1Left+5;
+		if ( div1Left >= fundoWidth  - div1Width){
+			clearInterval(timerDiv1);
+			timerDiv1 = setInterval ("esquerda()",15);
+		}
+	}
+
+	function esquerda() {
+		let div1Left= parseInt(getComputedStyle(div1).left);
+		
+		div1.style.left = div1Left-5;
+		if ( div1Left <= 0){
+			clearInterval(timerDiv1);
+			timerDiv1 = setInterval ("direita()",15);
+		}
+	}
+	function reiniciar (){
+		clearInterval(setTimer);
+		clearInterval(spawnZumbis);
+		clearInterval(moveZumbi);
+		clearInterval(atirarBala);
+		document.querySelector("#iniciarbtn").style.visibility = "visible";
+
+		zombies = [];
+		plantasJogo = [];
+		balasJogo = [];
+
+		document.querySelectorAll(".zombies:not(#zombieinicial)").forEach(zumbi => zumbi.remove());
+		document.querySelectorAll(".bala").forEach(bala => bala.remove());
+
+		vidasT = 3;
+		parado = true;
+		podeAtirar = true;
+
+		document.querySelectorAll(".plantas").forEach(planta => {
+			planta.style.left = "";
+			planta.style.border = "";
+			planta.parentElement.removeChild(planta);
+			document.querySelector(".painel2").appendChild(planta);
+		});
+	}
+
+		</script>
+	</body>
+</html>
