@@ -190,19 +190,27 @@
 	let balasJogo = [];
 	let velocidade = 8;
 
+	let musica = new Audio("Plants.mp3");
+	let setTimer;
+	let spawnZumbis;
+	let moveZumbi;
+	let atirarBala;
+	
 	//*****  Funções  *******//
 	
 	function iniciar (){
-		
+		musica.play();
+		musica.volume= 0.25;
+		musica.loop = true;
 		document.getElementById("iniciarbtn").style.visibility = "hidden";
 		function simplyTimer (){
 			timer++;
 		}
-		let setTimer = setInterval(()=> {
+		setTimer = setInterval(()=> {
 			simplyTimer();
 		}, 1000);
 			// Spawn zumbis
-			let spawnZumbis = setInterval(() => {
+			spawnZumbis = setInterval(() => {
 				let tf = Math.ceil(Math.random()*10);
 				let tp = Math.ceil(Math.random()*5);
 				let topZombie = 0;
@@ -327,7 +335,6 @@
 		setInterval(() => {
 			if (localStorage.getItem("vidas") == 0){
 				reiniciar();
-				console.log(111);
 			}
 		},1);
 		function vidaLocal (){
@@ -351,15 +358,12 @@
 		function verificarTimer (){
 			if (timer == 60){
 				velocidade = 6;
-				console.log(velocidade);
 			}
 			if (timer == 100){
 				velocidade = 4;
-				console.log(velocidade);
 			}
 			if (timer == 140){
 				velocidade = 2;
-				console.log(velocidade);
 			}
 		}
 			setInterval(verificarTimer, 1);
@@ -386,7 +390,7 @@
 			}
 			setInterval(fimZumbis, 1);
 			// Movimentação dos zumbis
-			let moveZumbi = setInterval(() => {
+			moveZumbi = setInterval(() => {
 				for (let i = 0; i < zombies.length; i++) {
 				if (zombies[i].andar === 1) {
 					// Move o zumbi para a esquerda
@@ -436,7 +440,7 @@
 				
 			},1)
 			
-			let atirarBala = setInterval(()=> {
+			atirarBala = setInterval(()=> {
 				plantasJogo.forEach(item => {
 					let topo = 0;
 					let esq = 0;
@@ -657,8 +661,6 @@
 	function reiniciar (){
 		clearInterval(setTimer);
 		clearInterval(spawnZumbis);
-		clearInterval(moveZumbi);
-		clearInterval(atirarBala);
 		document.querySelector("#iniciarbtn").style.visibility = "visible";
 
 		zombies = [];
@@ -678,7 +680,9 @@
 			planta.parentElement.removeChild(planta);
 			document.querySelector(".painel2").appendChild(planta);
 		});
+		musica.pause();
 	}
+	
 
 		</script>
 	</body>
